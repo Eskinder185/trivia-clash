@@ -1,0 +1,241 @@
+/* Color palette */
+:root {
+  --primary-bg: #101820;
+  --accent-red: #f24c4c;
+  --accent-blue: #4cb5f2;
+  --accent-purple: #9d4edd;
+  --text-color: #ffffff;
+  --card-bg: #1f2833;
+}
+
+/* Base styles */
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to right, #101820, #1f2833);
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title */
+.title {
+  font-family: 'Russo One', sans-serif;
+  font-size: 4rem;
+  color: var(--accent-red);
+  text-shadow: 0 0 10px var(--accent-red), 0 0 20px var(--accent-blue);
+  margin: 20px 0;
+}
+
+/* Pre-game controls */
+#pre-game {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+#pre-game select {
+  padding: 8px 12px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 2px solid var(--accent-blue);
+  border-radius: 6px;
+  box-shadow: 0 0 8px var(--accent-blue);
+  transition: all 0.3s ease;
+}
+#pre-game select:hover,
+#pre-game select:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 12px var(--accent-red);
+}
+
+/* Start button */
+button#play {
+  padding: 12px 25px;
+  background: var(--accent-blue);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 15px var(--accent-blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button#play:hover {
+  background: var(--accent-red);
+  box-shadow: 0 0 20px var(--accent-red);
+  transform: translateY(-2px);
+}
+button#play:active {
+  transform: scale(0.95);
+}
+
+/* Player stats & timer */
+#game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+.player-stats {
+  background: #111;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--accent-purple);
+  min-width: 140px;
+}
+.player-stats h2 {
+  color: var(--accent-blue);
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+.player-stats .score,
+.player-stats .stats {
+  color: var(--accent-red);
+  text-shadow: 0 0 3px var(--accent-red);
+  margin: 4px 0;
+}
+#timer {
+  background: #111;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent-red);
+  text-shadow: 0 0 5px var(--accent-red);
+  font-size: 1.2rem;
+}
+
+/* Board styles */
+table {
+  width: 95%;
+  max-width: 1100px;
+  margin: 40px auto;
+  background: var(--card-bg);
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px var(--accent-purple);
+}
+th, td {
+  padding: 20px;
+  border: 2px solid var(--accent-red);
+  color: var(--accent-blue);
+  font-size: 1.2rem;
+  text-align: center;
+}
+th {
+  background: var(--accent-purple);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Clue cells */
+.clue {
+  background: var(--primary-bg);
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px var(--accent-blue);
+  transition: background 0.3s, transform 0.2s;
+}
+.clue:hover {
+  background: var(--accent-purple);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--accent-purple);
+}
+
+/* Locked category */
+.locked {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Viewed clue */
+.viewed {
+  text-decoration: line-through;
+  background: #222;
+  color: gray;
+}
+
+/* Active clue panel */
+#active-clue {
+  width: 80%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: var(--accent-blue);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--accent-blue);
+  text-shadow: 0 0 5px black;
+  font-size: 1.5rem;
+}
+
+/* Hint button */
+#hint-btn {
+  margin: 10px auto;
+  padding: 8px 16px;
+  background: var(--accent-red);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--accent-red);
+  cursor: pointer;
+  transition: 0.3s;
+}
+#hint-btn:hover:not(.disabled) {
+  box-shadow: 0 0 20px var(--accent-red);
+}
+#hint-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Answer box */
+#answer-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+}
+#user-answer {
+  width: 280px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: var(--text-color);
+  box-shadow: inset 0 0 8px var(--accent-blue);
+}
+#submit-answer {
+  padding: 10px 20px;
+  background: var(--accent-blue);
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--accent-blue);
+  cursor: pointer;
+}
+#submit-answer:hover {
+  background: var(--accent-red);
+  box-shadow: 0 0 15px var(--accent-red);
+}
+
+/* Spinner and text */
+#spinner {
+  text-align: center;
+  margin: 20px auto;
+}
+#spinner.disabled {
+  display: none;
+}
+#spinner i {
+  font-size: 2.5rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+#spinner p {
+  margin-top: 8px;
+  color: var(--accent-blue);
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}

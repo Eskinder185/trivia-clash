@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Trivia Clash</title>
+
+    <!-- Futuristic & display fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Spinner icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Game title -->
+    <h1 class="title">Trivia Clash</h1>
+
+    <!-- Pre-game controls -->
+    <div id="pre-game">
+      <label for="num-players">Players:</label>
+      <select id="num-players">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+
+      <button id="play">Start the Game!</button>
+    </div>
+
+    <!-- In-game player stats & timer -->
+    <div id="game-controls">
+      <!-- JS will inject .player-stats here -->
+      <div id="timer">Time Left: --</div>
+    </div>
+
+    <!-- Board -->
+    <section>
+      <table>
+        <thead><tr id="categories"></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <!-- Active clue and hint -->
+      <div id="active-clue"></div>
+      <button id="hint-btn" class="disabled">Show Hint</button>
+
+      <!-- Answer input -->
+      <div id="answer-box">
+        <input type="text" id="user-answer" placeholder="Type your answer..." />
+        <button id="submit-answer">Submit</button>
+      </div>
+    </section>
+
+    <!-- Spinner with dynamic status text -->
+    <div id="spinner" class="disabled">
+      <i class="fa fa-spin fa-spinner"></i>
+      <p id="spinner-text">Ready</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://unpkg.com/lodash"></script>
+    <script src="jeopardy.js"></script>
+  </body>
+</html>
